@@ -126,11 +126,22 @@ header {
     box-shadow: 0 4px 12px rgba(256, 256, 256, 0.2), 0 2px 6px rgba(0, 0, 0, 0.10); 
 }
 
+.book-card label {
+    font-family: satoshiBold, sans-serif;
+    color: var(--primary-txt);
+    font-weight: bold;
+    margin-top: 0.5rem; 
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .remove-btn {
     align-self: flex-end;
     margin-bottom: auto;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem; 
+    background-color: var(--inactive);
 }
 
 .book-card p {

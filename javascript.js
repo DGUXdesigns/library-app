@@ -66,6 +66,10 @@ function displayBooks(myLibrary) {
     const bookInfo = document.createElement('div');
     bookInfo.classList.add("book-card")
 
+    if (book.read) {
+      bookInfo.style.boxShadow = "0 0 8px 1px var(--accent)"; 
+    }
+
     const titleElement = document.createElement('h3');
     titleElement.textContent = book.title;
 
@@ -74,6 +78,25 @@ function displayBooks(myLibrary) {
 
     const numOfChapters = document.createElement('p');
     numOfChapters.textContent = `${book.chapters} Chapters`;
+
+    const readCheckbox = document.createElement('input');
+    readCheckbox.type = 'checkbox';
+    readCheckbox.checked = book.read; // Set the checkbox checked based on the book's read status
+    
+    const readLabel = document.createElement('label');
+    readLabel.textContent = "Read";
+    readLabel.appendChild(readCheckbox);
+
+    readCheckbox.addEventListener('change', () => {
+      book.read = readCheckbox.checked; // Update the book's read status
+
+      // Change the box shadow based on the checkbox state
+      if (book.read) {
+        bookInfo.style.boxShadow = "0 0 8px 1px var(--accent)"; // Add glow effect if read
+      } else {
+        bookInfo.style.boxShadow = "none"; // Remove glow effect if not read
+      }
+    });
 
     const removeBtn = document.createElement('button');
     removeBtn.classList.add('remove-btn')
@@ -87,6 +110,7 @@ function displayBooks(myLibrary) {
     bookInfo.appendChild(titleElement);
     bookInfo.appendChild(authorElement);
     bookInfo.appendChild(numOfChapters);
+    bookInfo.appendChild(readLabel);
     container.appendChild(bookInfo);
   });
 }
