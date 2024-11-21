@@ -32,4 +32,4 @@ The goal of this project is to highlight my **JavaScript** skills, specifically 
 To install and run the app locally:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/library-app.git
+   git clone git@github.com:DGUXdesigns/library-app.git
