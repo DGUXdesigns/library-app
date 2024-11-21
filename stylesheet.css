@@ -62,7 +62,7 @@ button {
 
 button:hover {
     background-color: #850385; 
-    transform: translateY(-3px);
+    transform: scale(1.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -118,12 +118,23 @@ header {
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .book-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(256, 256, 256, 0.2), 0 2px 6px rgba(0, 0, 0, 0.10); 
+}
+
+.remove-btn {
+    align-self: flex-end;
+    margin-bottom: auto;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem; 
+}
+
+.book-card p {
+    font-size: 0.875rem;
 }
 
 

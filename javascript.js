@@ -57,12 +57,25 @@ function displayBooks(myLibrary) {
     const numOfChapters = document.createElement('p');
     numOfChapters.textContent = `${book.chapters} Chapters`;
 
+    const removeBtn = document.createElement('button');
+    removeBtn.classList.add('remove-btn')
+    removeBtn.textContent = "Remove";
+
+    removeBtn.addEventListener('click', () => {
+      container.removeChild(bookInfo); 
+    });
+
+    bookInfo.appendChild(removeBtn);
     bookInfo.appendChild(titleElement);
     bookInfo.appendChild(authorElement);
     bookInfo.appendChild(numOfChapters);
     container.appendChild(bookInfo);
   });
 }
+
+function removeBook() {
+
+};
 
 //Initialize buttons
 addButton.addEventListener("click", () => {
