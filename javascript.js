@@ -1,10 +1,34 @@
 const myLibrary = [
-  "Dandadan", 
-  "Sakamoto Days", 
-  "Kagurabachi", 
-  "Blue Lock", 
-  "One Piece", 
-  "Chainsaw Man"
+  {
+    title: "Dandadan",
+    author: "Tatsu Yukinobu",
+    chapters: 175,
+    read: false
+  },
+  {
+    title: "Sakamoto Days",
+    author: "Suzuki Yuuto",
+    chapters: 189,
+    read: true
+  },
+  {
+    title: "Kagurabachi",
+    author: "Hokazono Takeru",
+    chapters: 61,
+    read: true
+  },
+  {
+    title: "One Piece",
+    author: "Oda Eiichiro",
+    chapters: 1163,
+    read: true
+  },
+  {
+    title: "Chainsaw Man",
+    author: "Tatsuki Fujimoto",
+    chapters: 184,
+    read: true
+  },   
 ];
 const addButton = document.querySelector("#showDialog");
 const dialog = document.querySelector("dialog");
@@ -21,11 +45,22 @@ function displayBooks(myLibrary) {
   const container =document.querySelector('.container');
 
   myLibrary.forEach(book => {
-    const info = document.createElement('div');
-    info.classList.add("book-card")
-    info.textContent = book;
+    const bookInfo = document.createElement('div');
+    bookInfo.classList.add("book-card")
 
-    container.appendChild(info);
+    const titleElement = document.createElement('h3');
+    titleElement.textContent = book.title;
+
+    const authorElement = document.createElement('p');
+    authorElement.textContent = book.author;
+
+    const numOfChapters = document.createElement('p');
+    numOfChapters.textContent = `${book.chapters} Chapters`;
+
+    bookInfo.appendChild(titleElement);
+    bookInfo.appendChild(authorElement);
+    bookInfo.appendChild(numOfChapters);
+    container.appendChild(bookInfo);
   });
 }
 

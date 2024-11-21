@@ -117,13 +117,16 @@ header {
     box-shadow: 0 4px 8px rgba(256, 256, 256, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3); 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .book-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(256, 256, 256, 0.2), 0 2px 6px rgba(0, 0, 0, 0.10); 
 }
+
+
 
 /* modal */
 
@@ -195,11 +198,6 @@ textarea {
     box-sizing: border-box;
 }
 
-input[type="checkbox"] {
-    accent-color: var(--accent);
-    transform: scale(1.2); /* Slightly larger checkbox */
-}
-
 .button-container {
     display: flex;
     gap: 1rem;
@@ -209,12 +207,12 @@ input[type="checkbox"] {
 
 /* Custom Checkbox */
 input[type="checkbox"] {
-    appearance: none; /* Remove default checkbox styling */
+    appearance: none;
     width: 1.25rem;
     height: 1.25rem;
-    border: 2px solid var(--inactive); /* Border color matches the theme */
-    border-radius: 0.25rem; /* Optional: rounded corners for a modern look */
-    background-color: var(--prim-clr); /* Matches your primary background color */
+    border: 2px solid var(--inactive); 
+    border-radius: 0.25rem; 
+    background-color: var(--prim-clr); 
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -242,7 +240,7 @@ input[type="checkbox"]:checked::after {
     height: 0.3rem;
     border: solid var(--primary-txt);
     border-width: 0 0.2rem 0.2rem 0;
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -65%) rotate(-45deg) scaleX(-1);
 }
 
 /* Checkbox focus outline for accessibility */
@@ -251,11 +249,10 @@ input[type="checkbox"]:focus {
     outline-offset: 2px;
 }
 
-label {
+label[for="read"] {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 1rem;
-    font-weight: bold;
     color: var(--primary-txt);
+    font-weight: bold;
 }
