@@ -30,19 +30,37 @@ const myLibrary = [
     read: true
   },   
 ];
+
 const addButton = document.querySelector("#showDialog");
 const dialog = document.querySelector("dialog");
+const submitBtn = document.querySelector("#addBook")
 
-function Book() {
-  // the constructor...
+function Book(title, author, chapters, read) {
+  this.title = title;
+  this.author = author;
+  this.chapters = chapters;
+  this.read = read;
 }
 
-function addBookToLibrary(newBook) {
-  return myLibrary.push(newBook)
+function addBookToLibrary() {
+  event.preventDefault();
+
+  const title = document.querySelector('#bookTitle').value;
+  const author = document.querySelector('#bookAuthor').value;
+  const chapters = parseInt(document.querySelector('#bookChapters').value);
+  const read = document.querySelector('#bookRead').checked;
+  
+  const newBook = new Book(title, author, chapters, read);
+
+  myLibrary.push(newBook);
+
+  displayBooks(myLibrary);
+  dialog.close();
 }
 
 function displayBooks(myLibrary) {
   const container =document.querySelector('.container');
+  container.innerHTML = '';
 
   myLibrary.forEach(book => {
     const bookInfo = document.createElement('div');
@@ -73,11 +91,9 @@ function displayBooks(myLibrary) {
   });
 }
 
-function removeBook() {
-
-};
-
 //Initialize buttons
+submitBtn.addEventListener('click', addBookToLibrary);
+
 addButton.addEventListener("click", () => {
   dialog.showModal();
 })
@@ -93,8 +109,5 @@ dialog.addEventListener('click', e => {
     dialog.close();
   };
 })
-
-
-
 
 displayBooks(myLibrary);
